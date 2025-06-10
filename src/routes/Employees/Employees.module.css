@@ -1,0 +1,54 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.stats .title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--bg-gray-100);
+    font-size: 18px;
+}
+
+.stats .number {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+.stats .lastMonth {
+    font-size: 1rem;
+    color: var(--bg-gray-100);
+}
+
+.stats .lastMonth .plus {
+    color: var(--color-success);
+}
+
+.stats .lastMonth .minus {
+    color: var(--color-error);
+}
+
+.nameColumn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nameColumn img {
+    border-radius: 50%;
+}

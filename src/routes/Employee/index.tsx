@@ -1,23 +1,25 @@
 // import { useParams } from 'react-router-dom';
-import { PiTimerBold } from 'react-icons/pi';
+// import { PiTimerBold } from 'react-icons/pi';
 
 // import type { PathParams, ROUTES } from '@/shared/config/routes';
 
 // import AvatarPlaceholder from '@/asssets/images/avatar-placeholder.png';
 import Calendar from './Calendar';
-import styles from './Employee.module.css';
+import Notes from './Notes';
 // import { Image } from 'antd';
-import moment from 'moment';
+// import moment from 'moment';
 
-const employee = {
-  firstName: 'Ivan',
-  lastName: 'Ivanov',
-  email: 'test@test.com',
-  photo: '',
-  position: 'Product Designer',
-  grade: 'Senior',
-  joined: new Date('2025-05-12'),
-};
+import styles from './Employee.module.css';
+
+// const employee = {
+//   firstName: 'Ivan',
+//   lastName: 'Ivanov',
+//   email: 'test@test.com',
+//   photo: '',
+//   position: 'Product Designer',
+//   grade: 'Senior',
+//   joined: new Date('2025-05-12'),
+// };
 
 const Employee = () => {
   // const params = useParams<PathParams[typeof ROUTES.EMPLOYEE]>();
@@ -73,7 +75,9 @@ const Employee = () => {
         <div className="card"></div>
       </div>
       <div className={styles.column}>
-        <div className="card"></div>
+        <div className={`card ${styles.card}`}>
+          <Notes />
+        </div>
         <div className={`card ${styles.cardTall}`}>
           <Calendar />
         </div>

@@ -12,6 +12,10 @@
     gap: 20px;
 }
 
+.card {
+    height: calc(100% - 40px - 14px - 100% / 3 * 2);
+}
+
 .cardTall {
     flex: unset;
     height: calc(100% - 40px - 6px - 100% / 3);
@@ -124,8 +128,6 @@
     overflow-y: auto;
     margin-top: 20px;
     box-sizing: border-box;
-    scrollbar-color: var(--bg-gray-500) var(--bg-gray-400);
-    scrollbar-width: thin;
 }
 
 .meeting {
@@ -174,6 +176,45 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+}
+
+/* Notes */
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title svg {
+    cursor: pointer;
+}
+
+.notes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.note {
+    background-color: var(--theme-primary);
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.note:hover {
+    background-color: var(--theme-primary-lighter);
+    cursor: pointer;
+}
+
+.note .date {
+    font-size: 0.8rem;
+}
+
+.note .text {
+    font-weight: bolder;
 }
 
 @media (max-width: 996px) {

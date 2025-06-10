@@ -6,9 +6,13 @@
   --bg-gray-500: #1d1d1d;
   --bg-gray-400: #363636;
   --bg-gray-200: #7a7a7a;
+  --bg-gray-100: #9c9c9c;
 
   --theme-primary-lighter: #cfeafa;
   --theme-primary: #c6e4f5;
+
+  --color-success: #27c512;
+  --color-error: #e91e1e;
 }
 
 #root {
@@ -24,6 +28,8 @@ body {
   box-sizing: border-box;
   background-color: var(--bg-dark);
   color: white;
+  scrollbar-color: var(--bg-gray-500) var(--bg-gray-400);
+  scrollbar-width: thin;
 }
 
 .card {
@@ -44,8 +50,51 @@ main {
   flex: 1;
 }
 
-p {
+button {
+  background-color: var(--theme-primary) !important;
+  border: none !important;
+  font-weight: bolder !important;
+  color: black !important;
+}
+
+button:hover {
+  background-color: var(--theme-primary-lighter) !important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0;
+}
+
+.ant-pagination-next button,
+.ant-pagination-prev button {
+  background-color: var(--bg-gray-400) !important;
+  color: white !important;
+}
+
+.ant-pagination-item-active {
+  border-color: var(--bg-gray-400) !important;
+}
+
+.ant-pagination-item-active a {
+  color: white !important;
+}
+
+.ant-pagination-total-text {
+  color: var(--bg-gray-100);
+  margin-inline-end: 20px !important;
+}
+
+a {
+  color: var(--theme-primary);
+}
+
+a:hover {
+  color: var(--theme-primary-lighter);
 }
 
 @media (max-width: 996px) {
