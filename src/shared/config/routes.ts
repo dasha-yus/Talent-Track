@@ -6,6 +6,7 @@ export const ROUTES = {
     // REGISTER: "/register",
     EMPLOYEES: "/employees",
     EMPLOYEE: "/employees/:employeeId",
+    HIRING: "/hiring",
 } as const;
 
 export type PathParams = {

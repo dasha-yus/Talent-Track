@@ -1,0 +1,22 @@
+.block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--theme-primary);
+    font-weight: bold;
+    text-align: center;
+}
+
+h1 {
+    font-size: 160px;
+}
+
+.message {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.text {
+    font-size: 20px;
+}

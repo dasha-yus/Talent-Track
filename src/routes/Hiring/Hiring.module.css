@@ -1,0 +1,177 @@
+.hiring {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.hiringCard {
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.jobs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.jobs .block {
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    padding-left: 0 !important;
+    font-size: 1rem;
+}
+
+.flexColumn {
+    flex-direction: column;
+    align-items: start !important;
+}
+
+.candidates {
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+}
+
+.activeCandidates {
+    cursor: pointer;
+}
+
+.activeCandidates:hover {
+    opacity: 0.95 !important;
+}
+
+.noCandidates {
+    background-color: var(--bg-gray-400) !important;
+}
+
+.more {
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+}
+
+.chart {
+    width: 100%;
+    height: 100%;
+}
+
+.legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 40px;
+}
+
+.legend .item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend .item .color {
+    height: 70%;
+    width: 8px;
+    border-radius: 20px;
+}
+
+.legend .item p {
+    font-size: 38px;
+    font-weight: bolder;
+    margin-top: -2px;
+}
+
+.legend .item span {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1.1rem;
+}
+
+.interviews {
+    margin-top: 20px;
+}
+
+.contribution-graph {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: Arial, sans-serif;
+}
+
+.months-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.month-header {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.grid-container {
+  display: flex;
+}
+
+.day-labels {
+  display: flex;
+  flex-direction: column;
+  margin-right: 8px;
+}
+
+.day-label {
+  height: 16px;
+  font-size: 12px;
+  text-align: right;
+  margin-bottom: 4px;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.week {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4px;
+}
+
+.day {
+  margin-bottom: 4px;
+  border-radius: 2px;
+  background-color: #ebedf0;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 1400px) {
+    .hiring {
+        grid-template-columns: 1fr;
+    }
+
+    .legend {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 998px) {
+    .interviews {
+        display: none;
+    }
+}

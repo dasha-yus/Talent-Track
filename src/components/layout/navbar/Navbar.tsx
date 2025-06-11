@@ -13,9 +13,9 @@ type MenuItem = {
 
 const menuItems: MenuItem[] = [
   { title: 'Employees', url: ROUTES.EMPLOYEES },
-  { title: 'Stats', url: ROUTES.EMPLOYEE + '1' },
+  { title: 'Requests', url: ROUTES.EMPLOYEE + '1' },
   { title: 'Projects', url: ROUTES.EMPLOYEE + '2' },
-  { title: 'Hiring', url: ROUTES.EMPLOYEE + '3' },
+  { title: 'Hiring', url: ROUTES.HIRING },
 ];
 
 const Navbar: React.FC = () => {

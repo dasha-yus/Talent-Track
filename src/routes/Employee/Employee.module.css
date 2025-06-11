@@ -84,11 +84,11 @@
 }
 
 .header button {
-    background: none;
+    background: none !important;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    color: white;
+    color: white !important;
 }
 
 .weekdays {

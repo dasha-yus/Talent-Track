@@ -20,6 +20,7 @@ interface DataType {
 const departments = ['React', 'Node.js', 'Angular', 'Vue', 'Design', 'Marketing', 'DevOps', 'QA'];
 const positions = ['Developer', 'Designer', 'Manager', 'Analyst', 'Tester'];
 const grades = [
+  'Intern',
   'Junior-',
   'Junior',
   'Junior+',
@@ -80,7 +81,8 @@ const Employees = () => {
       title: 'Department',
       dataIndex: 'department',
       key: 'department',
-      // filters: departments.map((dep) => ({ text: dep, value: dep })),
+      filters: departments.map((dep) => ({ text: dep, value: dep })),
+      onFilter: (value, record) => record.department.indexOf(value as string) === 0,
     },
     {
       title: 'Position',
@@ -101,6 +103,8 @@ const Employees = () => {
           {status.toUpperCase()}
         </Tag>
       ),
+      filters: statuses.map((dep) => ({ text: dep.toUpperCase(), value: dep })),
+      onFilter: (value, record) => record.status.indexOf(value as string) === 0,
     },
     {
       title: 'Join Date',
