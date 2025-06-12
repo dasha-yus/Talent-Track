@@ -94,6 +94,10 @@ h5 {
   margin-inline-end: 20px !important;
 }
 
+.ant-form-item-explain {
+  margin-bottom: 12px;
+}
+
 a {
   color: var(--theme-primary);
 }

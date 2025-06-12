@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { RiMore2Fill } from 'react-icons/ri';
 
-import ContributionGraph from './InterviewActivity';
+import InterviewActivity from './InterviewActivity';
 import styles from './Hiring.module.css';
 
 const data = [
@@ -186,7 +186,7 @@ const Hiring: React.FC = () => {
                   dataKey="value"
                   paddingAngle={3}
                 >
-                  {data.map((entry, index) => (
+                  {data.map((_entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
@@ -212,7 +212,7 @@ const Hiring: React.FC = () => {
         <div className={styles.header}>
           <h2>Interview activity</h2>
         </div>
-        <ContributionGraph />
+        <InterviewActivity />
       </div>
     </>
   );

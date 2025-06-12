@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 
+import { getDataIntervals, isInDataInterval } from '@/utils/General';
 import styles from './Hiring.module.css';
 
-// Helper function to generate the past year's data
 const generateYearData = () => {
   const today = new Date();
   const yearAgo = new Date();
@@ -15,7 +15,7 @@ const generateYearData = () => {
   while (currentDate <= today) {
     data.push({
       date: new Date(currentDate),
-      activity: Math.floor(Math.random() * 5), // Random activity level (0-4)
+      activity: Math.floor(Math.random() * 5),
     });
     currentDate.setDate(currentDate.getDate() + 1);
   }
@@ -23,7 +23,6 @@ const generateYearData = () => {
   return data;
 };
 
-// Helper function to group data by weeks
 const groupByWeeks = (data: any[]) => {
   const weeks: any[][] = [];
   let week: any[] = [];
@@ -39,7 +38,7 @@ const groupByWeeks = (data: any[]) => {
   return weeks;
 };
 
-const ContributionGraph: React.FC = () => {
+const InterviewActivity: React.FC = () => {
   const [width, setWidth] = useState(window.innerWidth);
 
   const today = moment();
@@ -52,6 +51,30 @@ const ContributionGraph: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const createGradientColor = (intervals: number[][], value: number) => {
+    const [interval1, interval2, interval3, interval4, interval5] = intervals;
+    if (interval1 && interval2 && interval3 && interval4 && interval5) {
+      if (isInDataInterval(value, interval1)) {
+        return '#ebedf0';
+      } else if (isInDataInterval(value, interval2)) {
+        return '#cadbfa';
+      } else if (isInDataInterval(value, interval3)) {
+        return '#a6c3f7';
+      } else if (isInDataInterval(value, interval4)) {
+        return '#86aaeb';
+      } else if (isInDataInterval(value, interval5)) {
+        return '#5d89d9';
+      }
+    }
+    return '#ebedf0';
+  };
+
+  const getDaysOfWeek = () => {
+    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const todayIndex = moment().isoWeekday() - 1;
+    return weekdays.slice(todayIndex).concat(weekdays.slice(0, todayIndex));
+  };
+
   const yearData = generateYearData();
   const weeks = groupByWeeks(yearData);
 
@@ -59,6 +82,9 @@ const ContributionGraph: React.FC = () => {
     ...new Set(yearData.map((day) => day.date.toLocaleString('default', { month: 'short' }))),
     moment().format('MMM'),
   ];
+
+  const max = yearData.reduce((prev, current) => (prev.activity > current.activity ? prev : current));
+  const intervals = getDataIntervals(max.activity);
 
   return (
     <div className={styles['contribution-graph']}>
@@ -71,11 +97,10 @@ const ContributionGraph: React.FC = () => {
         ))}
       </div>
 
-      {/* Grid with day labels */}
+      {/* Day labels */}
       <div className={styles['grid-container']}>
-        {/* Day labels */}
         <div className={styles['day-labels']}>
-          {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, index) => (
+          {getDaysOfWeek().map((day, index) => (
             <div key={index} className={styles['day-label']}>
               {day}
             </div>
@@ -91,7 +116,7 @@ const ContributionGraph: React.FC = () => {
                   key={dayIndex}
                   className={styles['day']}
                   style={{
-                    backgroundColor: getColor(day.activity),
+                    backgroundColor: createGradientColor(intervals, day.activity),
                     width: `${(width - 160 - 60 - 4 * (weeksDifference - 1)) / (weeksDifference - 1)}px`,
                     height: 16,
                   }}
@@ -106,9 +131,4 @@ const ContributionGraph: React.FC = () => {
   );
 };
 
-const getColor = (level: any) => {
-  const colors = ['#ebedf0', '#cadbfa', '#b6caf0', '#81a0db', '#5479bf'];
-  return colors[level] || '#ebedf0';
-};
-
-export default ContributionGraph;
+export default InterviewActivity;

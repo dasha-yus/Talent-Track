@@ -2,8 +2,8 @@ import "react-router-dom";
 
 export const ROUTES = {
     HOME: "/",
-    // LOGIN: "/login",
-    // REGISTER: "/register",
+    LOGIN: "/login",
+    REGISTER: "/register",
     EMPLOYEES: "/employees",
     EMPLOYEE: "/employees/:employeeId",
     HIRING: "/hiring",

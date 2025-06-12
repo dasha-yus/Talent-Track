@@ -4,6 +4,8 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { ROUTES } from '@/shared/config/routes';
 import { Layout } from '@/components/layout';
 
+const LoginPage = lazy(() => import('@/routes/Auth/Login'));
+const RegisterPage = lazy(() => import('@/routes/Auth/Register'));
 const EmployeesPage = lazy(() => import('@/routes/Employees'));
 const EmployeePage = lazy(() => import('@/routes/Employee'));
 const HiringPage = lazy(() => import('@/routes/Hiring'));
@@ -31,6 +33,14 @@ export const router = createBrowserRouter([
         element: <HiringPage />,
       },
     ],
+  },
+  {
+    path: ROUTES.LOGIN,
+    element: <LoginPage />,
+  },
+  {
+    path: ROUTES.REGISTER,
+    element: <RegisterPage />,
   },
   {
     path: '*',
