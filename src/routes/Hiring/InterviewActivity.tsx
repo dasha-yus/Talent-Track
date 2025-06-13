@@ -15,7 +15,7 @@ const generateYearData = () => {
   while (currentDate <= today) {
     data.push({
       date: new Date(currentDate),
-      activity: Math.floor(Math.random() * 5),
+      activity: Math.floor(Math.random() * 10),
     });
     currentDate.setDate(currentDate.getDate() + 1);
   }
@@ -55,18 +55,18 @@ const InterviewActivity: React.FC = () => {
     const [interval1, interval2, interval3, interval4, interval5] = intervals;
     if (interval1 && interval2 && interval3 && interval4 && interval5) {
       if (isInDataInterval(value, interval1)) {
-        return '#ebedf0';
+        return '#4a4a4a';
       } else if (isInDataInterval(value, interval2)) {
-        return '#cadbfa';
+        return '#6e6e6e';
       } else if (isInDataInterval(value, interval3)) {
-        return '#a6c3f7';
+        return '#999999';
       } else if (isInDataInterval(value, interval4)) {
-        return '#86aaeb';
+        return '#c4c4c4';
       } else if (isInDataInterval(value, interval5)) {
-        return '#5d89d9';
+        return '#ffffff';
       }
     }
-    return '#ebedf0';
+    return '#4a4a4a';
   };
 
   const getDaysOfWeek = () => {

@@ -6,8 +6,7 @@
 // import AvatarPlaceholder from '@/asssets/images/avatar-placeholder.png';
 import Calendar from './Calendar';
 import Notes from './Notes';
-// import { Image } from 'antd';
-// import moment from 'moment';
+import WeeklyActivity from './WeeklyActivity';
 
 import styles from './Employee.module.css';
 
@@ -70,7 +69,9 @@ const Employee = () => {
         </div>
       </div>
       <div className={styles.column}>
-        <div className="card"></div>
+        <div className="card">
+          <WeeklyActivity />
+        </div>
         <div className="card"></div>
         <div className="card"></div>
       </div>
